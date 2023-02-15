@@ -21,7 +21,7 @@ export default function App() {
           <Suspense fallback={<Loading />}>
             <Routes>
               <Route path="/" element={id ? <User id={id} /> : <Admin />} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="*" element={<NotFound setId={setId} />} />
             </Routes>
           </Suspense>
           <Footer id={id} setId={setId} />

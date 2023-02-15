@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartUseContext } from "../../content/cart-contex";
 
-export const NotFound = () => {
+export const NotFound = ({ setId }) => {
   const navigate = useNavigate();
-  const { setId } = CartUseContext();
+
   useEffect(() => {
     setId(null);
     setTimeout(() => {

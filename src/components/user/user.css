@@ -1,0 +1,21 @@
+#menulist {
+  display: grid;
+  grid-template-columns: repeat(4, 300px);
+  gap: 20px;
+  justify-content: center;
+}
+@media only screen and (max-width: 1300px) {
+  #menulist {
+    grid-template-columns: repeat(3, 300px);
+  }
+}
+@media only screen and (max-width: 950px) {
+  #menulist {
+    grid-template-columns: repeat(2, 300px);
+  }
+}
+@media only screen and (max-width: 650px) {
+  #menulist {
+    grid-template-columns: repeat(1, 300px);
+  }
+}

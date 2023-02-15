@@ -4,7 +4,7 @@ import { CartUseContext } from "../../content/cart-contex";
 
 export const NotFound = () => {
   const navigate = useNavigate();
-  const [setId] = CartUseContext();
+  const { setId } = CartUseContext();
   useEffect(() => {
     setId(null);
     setTimeout(() => {

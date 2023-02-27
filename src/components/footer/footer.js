@@ -7,7 +7,7 @@ export const Footer = ({ id, setId }) => {
   const navigate = useNavigate();
   return (
     <div className="footer">
-      {id === false ? (
+      {id === false || id === null ? (
         <></>
       ) : (
         <button onClick={showmodal} className="footer1">

@@ -7,7 +7,9 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ItemCard from "./card";
+import { AddMenu } from "./addMenu";
 import DisplayModal from "./ModalDisplay";
+import History from "./History";
 import { useEffect } from "react";
 
 function TabPanel(props) {
@@ -49,7 +51,6 @@ export function BasicTabs() {
   const menuList = menu.map((e, index) => {
     return <ItemCard key={index} info={e} />;
   });
-
   return (
     <Box sx={{ width: "80%", margin: "auto 10%", marginBottom: "60px" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -61,19 +62,18 @@ export function BasicTabs() {
         >
           <Tab label="All item" {...a11yProps(0)} />
           <Tab label="Add item" {...a11yProps(1)} />
-          <Tab label="task 3" {...a11yProps(2)} />
-          <Tab label="task 4" {...a11yProps(3)} />
+          <Tab label="History" {...a11yProps(2)} />
+          <Tab label="Sales" {...a11yProps(3)} />
         </Tabs>
       </Box>
-
       <TabPanel value={value} index={0}>
         <div id="menulist">{menuList}</div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        add item
+        <AddMenu />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        task 3
+        <History />
       </TabPanel>
       <TabPanel value={value} index={3}>
         task 4

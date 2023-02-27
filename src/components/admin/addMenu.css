@@ -1,0 +1,25 @@
+#addform {
+  display: flex;
+}
+#addform2 {
+  width: 60%;
+}
+.field {
+  height: 50px;
+}
+.field label {
+  font-size: larger;
+}
+.field input {
+  font-size: larger;
+}
+#addbuttonbox {
+  width: 30%;
+  display: grid;
+  place-items: center;
+}
+#addbutton {
+  height: 30%;
+  font-size: 50px;
+  color: black;
+}

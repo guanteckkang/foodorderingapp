@@ -1,25 +1,56 @@
-import { CartUseContext } from "../../content/cart-contex";
-import { AppBar, Toolbar, IconButton, Button } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Button, Input } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
+import ClearIcon from "@mui/icons-material/Clear";
+import { CartUseContext } from "../../content/cart-contex";
+import reverse from "../../img/reverse.png";
+import { useState, useEffect } from "react";
+
+const style = {
+  color: "red",
+  backgroundColor: "rgba(249, 180, 45, 0.9)",
+};
+
 export default function Header({ id, setId }) {
-  const { cart, showmodal } = CartUseContext();
+  const { cart, text, setText, showmodal, setSearch } = CartUseContext();
+  useEffect(() => {
+    setSearch(text);
+  }, [text]);
 
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" sx={style}>
       <Toolbar>
-        <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-        >
-          LOGO
-        </IconButton>
+        <img src={reverse} width="50px" disabled />
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          {id ? "Food Ordering" : "Manage Menu"}
+          WcDonalds
         </Typography>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          {id ? "" : "Item Management"}
+        </Typography>
+        {id ? (
+          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+            <ClearIcon
+              sx={{ color: "disabled", mr: 1, my: 0.5 }}
+              onClick={() => {
+                setText("");
+                setSearch("");
+              }}
+            />
+            <TextField
+              id="input-with-sx"
+              label="search..."
+              variant="standard"
+              value={text}
+              onChange={(e) => {
+                setText(e.target.value);
+              }}
+            />
+          </Box>
+        ) : (
+          <></>
+        )}
         {id ? (
           <Button
             color="inherit"
@@ -32,14 +63,14 @@ export default function Header({ id, setId }) {
           <></>
         )}
 
-        <Button
+        {/* <Button
           color="inherit"
           onClick={() => {
             setId(!id);
           }}
         >
           {id ? "User" : "Admin"}
-        </Button>
+        </Button> */}
       </Toolbar>
     </AppBar>
   );

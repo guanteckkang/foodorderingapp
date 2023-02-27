@@ -13,7 +13,7 @@ import { ItemUseContext } from "../../content/item-contex";
 import { CartUseContext } from "../../content/cart-contex";
 import DisplayModal from "./ModalDisplay";
 export default function ItemCard({ info }) {
-  const { sku, display, name, price, description, url } = info;
+  const { sku, display, name, price, description, url, quantity } = info;
   const { handleOpen, open, setModal } = ItemUseContext();
   const { menu, setMenu } = CartUseContext();
 
@@ -59,6 +59,13 @@ export default function ItemCard({ info }) {
               component="div"
             >
               Rm {price}
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              color="text.secondary"
+              component="div"
+            >
+              Quantity: {quantity}
             </Typography>
           </CardContent>
           <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>

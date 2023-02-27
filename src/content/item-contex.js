@@ -6,6 +6,7 @@ export function ItemContextProvider({ children }) {
   const [open, setOpen] = useState(false);
   const [modal, setModal] = useState(0);
   const [data, setData] = useState();
+  const [history, setHistory] = useState([]);
 
   const handleOpen = (num, info) => {
     setOpen(true);
@@ -21,6 +22,8 @@ export function ItemContextProvider({ children }) {
     handleClose,
     modal,
     data,
+    history,
+    setHistory,
   };
   return <itemcontext.Provider value={value}>{children}</itemcontext.Provider>;
 }

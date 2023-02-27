@@ -7,10 +7,9 @@ import Typography from "@mui/material/Typography";
 import { CartUseContext } from "../../content/cart-contex";
 import { useContext, useEffect, useState, useMemo } from "react";
 
-export default function MenuCard({ info }) {
-  const [count, setCount] = useState(0);
+export default function CardList({ info }) {
   const { addItem, removeItem, cart } = CartUseContext();
-  const { name, description, price, url } = info;
+  const { name, description, price, url, quantity, sku } = info;
 
   const findItem = cart.find((e) => {
     return e.name == name;
@@ -29,13 +28,19 @@ export default function MenuCard({ info }) {
           <Typography component="div" variant="h5">
             {name}
           </Typography>
-
           <Typography
             variant="subtitle1"
             color="text.secondary"
             component="div"
           >
             Rm {price}
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            color="text.secondary"
+            component="div"
+          >
+            Quantity: {quantity}
           </Typography>
         </CardContent>
         <Box
@@ -44,19 +49,18 @@ export default function MenuCard({ info }) {
         >
           <IconButton
             onClick={() => {
-              removeItem({ name, price });
+              removeItem({ info });
             }}
             disabled={findItem == undefined}
           >
             -
           </IconButton>
           <IconButton>{!findItem ? 0 : findItem.quantity}</IconButton>
-          {/* <IconButton>{count}</IconButton> */}
           <IconButton
             onClick={() => {
-              addItem({ name, price });
-              setCount((prev) => prev + 1);
+              addItem({ info });
             }}
+            disabled={quantity === 0}
           >
             +
           </IconButton>

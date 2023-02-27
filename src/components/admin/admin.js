@@ -8,7 +8,6 @@ export const Admin = () => {
       <Helmet>
         <title>Admin</title>
       </Helmet>
-      <h1 style={{ textAlign: "center" }}>Welcome admin</h1>
       <BasicTabs></BasicTabs>
     </>
   );

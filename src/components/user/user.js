@@ -1,5 +1,4 @@
 import { CartUseContext } from "../../content/cart-contex";
-
 import CardList from "./CardList";
 import BasicModal from "./Modal";
 import { Helmet } from "react-helmet";

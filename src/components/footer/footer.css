@@ -1,15 +1,11 @@
-.footer1 {
+.footer {
   position: fixed;
-  right: 5%;
+  right: 3%;
   bottom: 10%;
   margin-bottom: 10px;
 }
 .footer2 {
   position: fixed;
-  right: 5%;
+  right: 3%;
   bottom: 5%;
-}
-.footer button {
-  width: 150px;
-  padding: 10px;
 }

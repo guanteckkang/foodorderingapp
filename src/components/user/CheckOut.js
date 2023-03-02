@@ -70,8 +70,6 @@ export function CheckOut() {
       sum: JSON.parse(totalsum),
     };
     if (cart.length != 0) {
-      // alert(`Thank you for your purchase \n Rm ${totalsum}`);
-      // console.log(pastbuy);
       if (history.length === 0) {
         setHistory([pastbuy]);
       } else {

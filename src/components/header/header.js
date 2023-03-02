@@ -27,31 +27,31 @@ export default function Header({ id, setId }) {
           WcDonalds
         </Typography>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          {id ? "" : "Item Management"}
+          {id ? (
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <ClearIcon
+                sx={{ color: "disabled", mr: 1, my: 0.5 }}
+                onClick={() => {
+                  setText("");
+                  setSearch("");
+                }}
+              />
+              <TextField
+                id="input-with-sx"
+                label="search..."
+                variant="standard"
+                value={text}
+                onChange={(e) => {
+                  setText(e.target.value);
+                }}
+              />
+            </Box>
+          ) : (
+            "Item Management"
+          )}
         </Typography>
-        {id ? (
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <ClearIcon
-              sx={{ color: "disabled", mr: 1, my: 0.5 }}
-              onClick={() => {
-                setText("");
-                setSearch("");
-              }}
-            />
-            <TextField
-              id="input-with-sx"
-              label="search..."
-              variant="standard"
-              value={text}
-              onChange={(e) => {
-                setText(e.target.value);
-              }}
-            />
-          </Box>
-        ) : (
-          <></>
-        )}
-        {id ? (
+
+        {/* {id ? (
           <Button
             color="inherit"
             style={{ fontSize: "20px", textTransform: "capitalize" }}
@@ -61,16 +61,15 @@ export default function Header({ id, setId }) {
           </Button>
         ) : (
           <></>
-        )}
-
-        {/* <Button
+        )} */}
+        <Button
           color="inherit"
           onClick={() => {
             setId(!id);
           }}
         >
           {id ? "User" : "Admin"}
-        </Button> */}
+        </Button>
       </Toolbar>
     </AppBar>
   );
